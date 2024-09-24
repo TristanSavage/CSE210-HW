@@ -19,13 +19,36 @@ class Program
         // Console.Write("What is your favorite color? ");
         // string color = Console.ReadLine();
 
-        if (x > y)
-            {
-            Console.WriteLine("greater");
-            }
-
         string school = "BYU-Idaho";
         Console.WriteLine($"I am studying at {school}.");
+
+        if (x > y)
+            {
+            Console.WriteLine("greater than");
+            }
         
+        if (x > y)
+            {
+                Console.WriteLine("greater than");
+            }
+            else
+            {
+                Console.WriteLine("less than");
+            }
+
+        if (x > y)
+            {
+                Console.WriteLine("greater than y");
+            }
+            else if (x > z)
+            {
+                Console.WriteLine("greater than z");
+            }
+            else
+            {
+                Console.WriteLine("less than both");
+            }
+        
+
     }
 }
