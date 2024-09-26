@@ -4,11 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // returnType FunctionName(dataType parameter1, dataType parameter2)
-    //     {
-    //         function_body
-    //     }
-
             static void DisplayWelcome()
             {
                 Console.WriteLine("Welcome to the Program!");
@@ -45,6 +40,5 @@ class Program
             int number = PromptUserNumber();
             number = SquareNumber(number);
             DisplayResults(name,number);
-
     }
 }
