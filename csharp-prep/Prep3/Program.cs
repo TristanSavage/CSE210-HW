@@ -44,7 +44,7 @@ class Program
                     number = randomGenerator.Next(1,100);
                     i = 0;
                 }
-            }5
+            }
 
         } while (guess != number && play == true);
     }
