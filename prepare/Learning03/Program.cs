@@ -44,7 +44,6 @@ class Fraction
         _bottom = bottom;
     }
 
-
     // Behaviors
     public string GetFractionString()
     {
