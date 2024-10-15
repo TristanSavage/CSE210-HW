@@ -1,39 +1,101 @@
 using System;
+using System.Globalization;
 using System.Runtime.InteropServices;
 
-class Box
+
+class Kitchen
 {
-    public double _height = 0;
-    public double _width = 0;
-    public double _length = 0;
+    public Dishwasher _dishwasher;
+    public Toaster _toaster;
+    public Table _table;
+    public Sink _sink;
 
-    public string _unit = "";
+}
 
-    public string Describe()
-    {
-        return $"Box + {_length} + {_width} + {_height} {_unit}";
-    }
+class Toaster
+{
+`
+}
 
-    public double Volume()
-    {
-        return _length * _width * _height;
-    }
+class Dishwasher
+{
+
+}
+
+class Sink
+{
+
+}
+
+class Table
+{
+    public bool isExtended = false;
+    public List<Chair> _chairs = new List<Chair>();
+}
+
+class Chair
+{
+    public string _color;
 }
 
 class Program
 {
     static void Main(string[] args)
     {
+        Kitchen myKitchen = new Kitchen();
+        myKitchen._dishwasher = new Dishwasher();
+        myKitchen._sink = new Sink();
 
-        Box small = new Box();
-        small._length = 10;
-        small._width = 7;
-        small._height = 5;
-        small._unit = "in";
+        myKitchen._toaster = new Toaster();
 
-        Console.WriteLine(small.Describe());
+        myKitchen._table = new Table();
+        myKitchen._table.isExtended = false;
+        Chair chair1 = new Chair();
+        chair1._color = "brown";
+        Chair chair2 = new Chair();
+        chair2._color = "brown";
+        myKitchen._table._chairs.Add(chair1);
+        myKitchen._table._chairs.Add(chair2);
+    
+    }
 
-        Console.WriteLine(small.Volume());
+
+
+}
+
+// class Box
+// {
+//     public double _height = 0;
+//     public double _width = 0;
+//     public double _length = 0;
+
+//     public string _unit = "";
+
+//     public string Describe()
+//     {
+//         return $"Box + {_length} + {_width} + {_height} {_unit}";
+//     }
+
+//     public double Volume()
+//     {
+//         return _length * _width * _height;
+//     }
+// }
+
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+
+//         Box small = new Box();
+//         small._length = 10;
+//         small._width = 7;
+//         small._height = 5;
+//         small._unit = "in";
+
+//         Console.WriteLine(small.Describe());
+
+//         Console.WriteLine(small.Volume());
 
         // int x;
         // x = 10;
