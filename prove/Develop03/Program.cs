@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
 
+        
         Scripture newScripture = new Scripture();
 
         bool runAgain = true;
