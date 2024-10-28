@@ -1,5 +1,4 @@
 
-
 class Word
 {
     // Attributes

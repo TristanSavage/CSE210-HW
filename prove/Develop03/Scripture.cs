@@ -1,5 +1,4 @@
 
-
 class Scripture
 {
     // Attributes

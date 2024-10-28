@@ -1,5 +1,4 @@
 
-
 class Reference
 {
     // Attributes
