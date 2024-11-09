@@ -49,8 +49,6 @@ class Program
                 newJournal.SaveToFile();
             break;
 
-
-
             case "5":
                 Console.WriteLine("Command: Edit");
                 newJournal.DisplayJournalEntries();
@@ -73,7 +71,6 @@ class Program
                 newJournal._entries.RemoveAt(deleteChoice-1);
             break;
             
-
             case "7":
                 Console.WriteLine("Command: Quit");
             break;

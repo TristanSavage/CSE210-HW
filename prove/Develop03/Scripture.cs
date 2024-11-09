@@ -47,8 +47,6 @@ class Scripture
                 break;
             }
             index = random.Next(revealedWords.Count);
-            // Console.WriteLine($"Total index = {revealedWords.Count}");
-            // Console.WriteLine($"Random index = {index}");
             revealedWords[index].HideWord();
             revealedWords.RemoveAt(index);
         }

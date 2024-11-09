@@ -3,146 +3,73 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 
 
-class Kitchen
-{
-    public Dishwasher _dishwasher;
-    public Toaster _toaster;
-    public Table _table;
-    public Sink _sink;
-
-}
-
-class Toaster
-{
-`
-}
-
-class Dishwasher
-{
-
-}
-
-class Sink
-{
-
-}
-
-class Table
-{
-    public bool isExtended = false;
-    public List<Chair> _chairs = new List<Chair>();
-}
-
-class Chair
-{
-    public string _color;
-}
-
 class Program
 {
     static void Main(string[] args)
     {
-        Kitchen myKitchen = new Kitchen();
-        myKitchen._dishwasher = new Dishwasher();
-        myKitchen._sink = new Sink();
+        int sleepTime = 40;
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(2);
 
-        myKitchen._toaster = new Toaster();
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < futureTime)
+        {
+        // Line 1
+        Console.WriteLine(" _   \n|    \n     ");
 
-        myKitchen._table = new Table();
-        myKitchen._table.isExtended = false;
-        Chair chair1 = new Chair();
-        chair1._color = "brown";
-        Chair chair2 = new Chair();
-        chair2._color = "brown";
-        myKitchen._table._chairs.Add(chair1);
-        myKitchen._table._chairs.Add(chair2);
-    
-    }
+        int x = Console.CursorLeft;  // starting column on first line
+        int y = Console.CursorTop - 3;  // starting row (3 lines back)
 
 
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 2
+        Console.WriteLine(" __  \n     \n     ");
 
-}
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 3
+        Console.WriteLine("  __ \n     \n     ");
 
-// class Box
-// {
-//     public double _height = 0;
-//     public double _width = 0;
-//     public double _length = 0;
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 4
+        Console.WriteLine("    _\n    |\n     ");
 
-//     public string _unit = "";
-
-//     public string Describe()
-//     {
-//         return $"Box + {_length} + {_width} + {_height} {_unit}";
-//     }
-
-//     public double Volume()
-//     {
-//         return _length * _width * _height;
-//     }
-// }
-
-// class Program
-// {
-//     static void Main(string[] args)
-//     {
-
-//         Box small = new Box();
-//         small._length = 10;
-//         small._width = 7;
-//         small._height = 5;
-//         small._unit = "in";
-
-//         Console.WriteLine(small.Describe());
-
-//         Console.WriteLine(small.Volume());
-
-        // int x;
-        // x = 10;
-        // Console.WriteLine(x);
-
-        // float y = 5;
-        // Console.WriteLine(y);
-
-        // Console.Write("There will not be a newline after this.");
-
-        // Console.WriteLine("Hello World!");
-
-        // // Console.Write("What is your favorite color? ");
-        // // string color = Console.ReadLine();
-
-        // string school = "BYU-Idaho";
-        // Console.WriteLine($"I am studying at {school}.");
-
-        // if (x > y)
-        //     {
-        //     Console.WriteLine("greater than");
-        //     }
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 5
+        Console.WriteLine("     \n    |\n    |");
         
-        // if (x > y)
-        //     {
-        //         Console.WriteLine("greater than");
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("less than");
-        //     }
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 6
+        Console.WriteLine("     \n     \n   _|");
 
-        // if (x > y)
-        //     {
-        //         Console.WriteLine("greater than y");
-        //     }
-        //     else if (x > z)
-        //     {
-        //         Console.WriteLine("greater than z");
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("less than both");
-        //     }
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 7
+        Console.WriteLine("     \n     \n  __ ");
 
-        
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 8
+        Console.WriteLine("     \n     \n __  ");
 
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 9
+        Console.WriteLine("     \n     \n|_   ");
 
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+        // Line 10
+        Console.WriteLine("     \n|    \n|    ");
+
+        Thread.Sleep(sleepTime);
+        Console.SetCursorPosition(x, y);
+
+        currentTime = DateTime.Now;
+        }
     }
 }
