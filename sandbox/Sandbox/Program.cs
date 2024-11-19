@@ -6,70 +6,43 @@ using System.Runtime.InteropServices;
 class Program
 {
     static void Main(string[] args)
-    {
-        int sleepTime = 40;
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(2);
+    {   
+        House newHouse = new House();
 
-        DateTime currentTime = DateTime.Now;
-        while (currentTime < futureTime)
-        {
-        // Line 1
-        Console.WriteLine(" _   \n|    \n     ");
+        SmartLight light1 = new SmartLight("light1");
+        SmartLight light2 = new SmartLight("light2");
+        SmartLight light3 = new SmartLight("light3");
+        SmartHeater heater1 = new SmartHeater("heater1");
+        SmartHeater heater2 = new SmartHeater("heater2");
+        SmartHeater heater3 = new SmartHeater("heater3");
+        SmartTV TV1 = new SmartTV("TV1");
+        SmartTV TV2 = new SmartTV("TV2");
 
-        int x = Console.CursorLeft;  // starting column on first line
-        int y = Console.CursorTop - 3;  // starting row (3 lines back)
+        Room familyRoom = new Room("familyRoom");
+        Room gameRoom = new Room("gameRoom");
+        Room kitchen = new Room("kitchen");
 
+        newHouse.AddToList(familyRoom);
+        newHouse.AddToList(gameRoom);
+        newHouse.AddToList(kitchen);
 
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 2
-        Console.WriteLine(" __  \n     \n     ");
+        familyRoom.AddToList(light1);
+        familyRoom.AddToList(heater1);
+        familyRoom.AddToList(TV1);
 
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 3
-        Console.WriteLine("  __ \n     \n     ");
+        gameRoom.AddToList(light2);
+        gameRoom.AddToList(heater2);
+        gameRoom.AddToList(TV2);
 
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 4
-        Console.WriteLine("    _\n    |\n     ");
+        kitchen.AddToList(light3);
+        kitchen.AddToList(heater2);
 
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 5
-        Console.WriteLine("     \n    |\n    |");
-        
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 6
-        Console.WriteLine("     \n     \n   _|");
+        // light1.TurnON();
+        // Thread.Sleep(2500);
+        // Console.WriteLine(light1.CheckTime());
 
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 7
-        Console.WriteLine("     \n     \n  __ ");
-
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 8
-        Console.WriteLine("     \n     \n __  ");
-
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 9
-        Console.WriteLine("     \n     \n|_   ");
-
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-        // Line 10
-        Console.WriteLine("     \n|    \n|    ");
-
-        Thread.Sleep(sleepTime);
-        Console.SetCursorPosition(x, y);
-
-        currentTime = DateTime.Now;
-        }
+        familyRoom.TurnOnDevices();
+        familyRoom.TurnOffLights();
+        familyRoom.ReportStatus();
     }
 }
