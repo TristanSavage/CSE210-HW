@@ -1,0 +1,6 @@
+-1475
+SimpleGoal|QM Test~By Wednesday~100~True~X
+EternalGoal|Read Scriptures~Daily Task~25~False~E
+CheckListGoal|Exercise~Workout 4 times this week~50~100~4~4~True~X
+SimpleGoal|Take my pills~Daily Task~25~True~X
+NegativeGoal|Death~I died~-1000~False~N
