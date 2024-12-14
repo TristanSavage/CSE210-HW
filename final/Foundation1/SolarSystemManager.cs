@@ -14,20 +14,46 @@ public class SolarSystemManager
         _allBodies.Add(CB);
     }
 
-    // public void GenerateNewIteration()
-    // {
-
-    // }
-
-    public void RunRK4()
+    public void ClearSystemManager()
     {
-        double t = 0;
-        double tf = 1;
-        double dt = 0.01;
+        _allBodies.Clear();
+    }
 
+    public void DisplayStatusALL(string title)
+    {
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine($"Status ID - {title}:");
+        foreach (CelestialBody CB in _allBodies)
+        {
+            CB.DisplayName();
+            CB.DisplayLocalStatus();
+            Console.WriteLine();
+        }
+    }
+
+    public void DisplayStatus(string title, string CB_Name)
+    {
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine($"Local Status ID - {title}:");
+        foreach (CelestialBody CB in _allBodies)
+        {
+            if (CB.GetName() == CB_Name)
+            {
+                CB.DisplayName();
+                CB.DisplayLocalStatus();
+                Console.WriteLine();
+            }
+        }
+    }
+
+
+    public void RunRK4(double t, double tf, double dt)
+    {
         while (t < tf)
         {
-            foreach (CelestialBody body in this._allBodies)
+            foreach (CelestialBody body in _allBodies)
             {
                 if (body.GetImmovability() == false)
                 {
@@ -38,13 +64,13 @@ public class SolarSystemManager
                     double[] adaptiveArray = new double[4];
                     Array.Copy(bodyArray, adaptiveArray, 4);
 
-                    double[] k1 = this.CalculateDerivatives(adaptiveArray,name,mass);
+                    double[] k1 = CalculateDerivatives(adaptiveArray,name,mass);
                     for (int i = 0; i < 4; i++)
                     {
                         adaptiveArray[i] = bodyArray[i] + dt*k1[i]/2;
                     }
                     
-                    double[] k2 = this.CalculateDerivatives(adaptiveArray,name,mass);
+                    double[] k2 = CalculateDerivatives(adaptiveArray,name,mass);
                     // Console.WriteLine($"k2 = [{k2[0]}, {k2[1]}, {k2[2]}, {k2[3]}]");
                     for (int i = 0; i < 4; i++)
                     {
@@ -52,13 +78,13 @@ public class SolarSystemManager
                         // Console.WriteLine($"OG Array element = {bodyArray[i]}, Scaled k2 Array element = {dt*k2[i]/2}");
                     }
                     
-                    double[] k3 = this.CalculateDerivatives(adaptiveArray,name,mass);
+                    double[] k3 = CalculateDerivatives(adaptiveArray,name,mass);
                     for (int i = 0; i < 4; i++)
                     {
                         adaptiveArray[i] = bodyArray[i] + dt*k3[i];
                     }
                     
-                    double[] k4 = this.CalculateDerivatives(adaptiveArray,name,mass);
+                    double[] k4 = CalculateDerivatives(adaptiveArray,name,mass);
                     
                     for (int i = 0; i < 4; i++)
                     {
@@ -111,7 +137,7 @@ public class SolarSystemManager
 
                 double x = CB_x - x0;
                 double y = CB_y - y0;
-                double r = Math.Sqrt(x*x + y*y);
+                double r = Sqrt(x*x + y*y);
                 // Console.WriteLine($"x = {x}, y = {y}, r = {r}");
 
                 aX += _G*CB_Mass * (x/r/r/r);

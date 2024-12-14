@@ -28,7 +28,7 @@ public class Room
     {
         foreach (SmartDevice device in _devices)
         {
-            if (SmartDevice == SmartLight)
+            if (device is SmartLight)
             {
                 device.TurnOFF();
             }

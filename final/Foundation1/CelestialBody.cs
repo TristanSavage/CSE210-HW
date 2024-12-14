@@ -3,7 +3,7 @@ public abstract class CelestialBody
     // Attributes
     private bool _immovable;
     private string _name;
-    private double _mass;
+    protected double _mass;
 
     private double[] _array = new double[4];
 
@@ -59,6 +59,16 @@ public abstract class CelestialBody
     }
 
     // Methods
+    public void DisplayName()
+    {
+        Console.WriteLine($"    {_name}");
+    }
+
+    public void DisplayLocalStatus()
+    {
+        Console.WriteLine($"        x = {_array[0]}, y = {_array[1]}");
+    }
+
     public string GetName()
     {
         return _name;
